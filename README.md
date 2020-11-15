@@ -29,3 +29,5 @@ If you have any doubts, contact me or ask the community [here](https://forum.ima
 Nina Tubau Ribera
 
 ## Acknowledgements
+
+Bankhead, P. et al. (2017). QuPath: Open source software for digital pathology image analysis. Scientific Reports. https://doi.org/10.1038/s41598-017-17204-5

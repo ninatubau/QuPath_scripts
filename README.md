@@ -10,6 +10,10 @@ Install from source [here](https://qupath.readthedocs.io/en/latest/docs/referenc
 
 ## Scripts
 
+1. Download the script
+2. Drag and drop the script in QuPath
+3. Press Run (Ctrl + R) 
+
 ## Forum
 
 If you have any doubts, contact me or ask the community [here](https://forum.image.sc/tag/qupath).

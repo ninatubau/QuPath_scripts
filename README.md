@@ -4,7 +4,7 @@
 
 Install *as normal* [here](https://qupath.readthedocs.io/en/latest/docs/intro/installation.html) 
 
-Install from source [here](https://qupath.readthedocs.io/en/latest/docs/reference/building.html) -> Gives acces to Stardist cell detection !
+Install from source [here](https://qupath.readthedocs.io/en/latest/docs/reference/building.html) -> Gives access to Stardist cell detection !
 
 ## How to use a script?
 

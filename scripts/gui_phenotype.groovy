@@ -1,3 +1,4 @@
+import com.google.gson.JsonParser
 import javafx.application.Platform
 import javafx.beans.property.SimpleLongProperty
 import javafx.geometry.Insets
@@ -23,6 +24,9 @@ import qupath.lib.gui.QuPathGUI
 import qupath.lib.gui.tools.ColorToolsFX;
 import javafx.scene.paint.Color
 import javafx.collections.FXCollections
+
+import com.google.gson.GsonBuilder
+
 import qupath.lib.scripting.QP
 
 import javax.swing.event.ChangeListener
@@ -48,7 +52,15 @@ def server = getCurrentImageData().getServer()
 def requestLabel = new Label("Set the number of phenotypes.")
 gridPane.add(requestLabel,col, row++, 3, 1)
 requestLabel.setAlignment(Pos.CENTER)
-def path = buildFilePath(PROJECT_BASE_DIR,"classifiers", "object_classifiers")
+def path_json = buildFilePath(PROJECT_BASE_DIR,"classifiers","classes.json");
+def json = new FileReader(path_json)  
+def gson = new GsonBuilder()
+        .setPrettyPrinting()
+        .create()
+
+def classes_map = gson.fromJson(json, Map.class)
+list_classes = classes_map['pathClasses']['name']
+
 
 TextField classText = new TextField("3");
 classText.setMaxWidth( textFieldWidth);
@@ -78,13 +90,11 @@ Platform.runLater {
 }
 
 startButton.setOnAction {
-
-    File f = new File(path);
-    pathnames = f.list();
+   
     List<String> channels = new ArrayList<String>();
-    for (def i=0; i< pathnames.length; i++){
-        channels.add(pathnames[i].replace('.json',''))
-    }
+    for (elt in list_classes){
+        channels.add(elt.split(': ')[-1]);
+            }
 
     List<String> criteria = new ArrayList<String>();
     criteria.add("positive");
